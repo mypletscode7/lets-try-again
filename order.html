@@ -1,1 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Andy's Restaurant | Order Online</title>
+
+
+<link rel="stylesheet" href="style.css">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+</head>
+
+
+<body>
+
+
+
+<!-- LOADER -->
+
+
+<div class="loader">
+
+<h1>
+ANDY'S
+</h1>
+
+<div class="loader-line"></div>
+
+</div>
+
+
+
+
+<div class="scroll-progress"></div>
+
+
+
+
+
+
+
+
+
+<!-- NAVIGATION -->
+
+
+<header class="navbar">
+
+
+<div class="logo">
+
+ANDY'S
+
+<span>
+RESTAURANT
+</span>
+
+</div>
+
+
+
+
+
+<nav>
+
+
+<a href="index.html">
+Home
+</a>
+
+
+<a href="menu.html">
+Menu
+</a>
+
+
+<a href="gallery.html">
+Gallery
+</a>
+
+
+<a href="reservations.html">
+Reservations
+</a>
+
+
+<a href="order.html">
+Order
+</a>
+
+
+<a href="events.html">
+Events
+</a>
+
+
+</nav>
+
+
+
+
+<button class="reserve-btn">
+
+Reserve Table
+
+</button>
+
+
+
+</header>
+
+
+
+
+
+
+
+
+
+<!-- HERO -->
+
+
+<section class="order-hero">
+
+
+<div>
+
+
+<p class="section-label">
+ANDY'S KITCHEN
+</p>
+
+
+<h1>
+Order Online
+</h1>
+
+
+
+<p>
+
+Enjoy your favourite meals
+from the comfort of your home.
+
+</p>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- PRODUCTS -->
+
+
+<section class="order-section">
+
+
+<div class="section-heading">
+
+
+<p>
+OUR FAVOURITES
+</p>
+
+
+<h2>
+Popular Dishes
+</h2>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="order-grid">
+
+
+
+
+
+<div class="order-card">
+
+
+<img src="assets/images/burger.jpg">
+
+
+<h3>
+Andy's Signature Burger
+</h3>
+
+
+<p>
+N$150
+</p>
+
+
+
+<button onclick="addToCart('Andys Burger')">
+
+Add To Order
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="order-card">
+
+
+<img src="assets/images/schnitzel.jpg">
+
+
+<h3>
+Chicken Schnitzel
+</h3>
+
+
+<p>
+N$180
+</p>
+
+
+
+<button onclick="addToCart('Chicken Schnitzel')">
+
+Add To Order
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="order-card">
+
+
+<img src="assets/images/pizza.jpg">
+
+
+<h3>
+German Style Pizza
+</h3>
+
+
+<p>
+N$140
+</p>
+
+
+
+<button onclick="addToCart('German Pizza')">
+
+Add To Order
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="order-card">
+
+
+<img src="assets/images/beer.jpg">
+
+
+<h3>
+Premium Drinks
+</h3>
+
+
+<p>
+N$45
+</p>
+
+
+
+<button onclick="addToCart('Premium Drink')">
+
+Add To Order
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- CART -->
+
+
+<div class="cart-box">
+
+
+<h2>
+Your Order
+</h2>
+
+
+
+<ul id="cart-items">
+
+</ul>
+
+
+
+
+<p>
+
+Items:
+<span id="cart-count">
+0
+</span>
+
+</p>
+
+
+
+
+<button>
+
+Checkout
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- WHATSAPP -->
+
+
+<a class="whatsapp" href="https://wa.me/26400000000">
+
+💬
+
+</a>
+
+
+
+
+
+
+
+
+
+<!-- FOOTER -->
+
+
+<footer>
+
+
+<div class="footer-brand">
+
+
+<h2>
+ANDY'S
+</h2>
+
+
+<p>
+Restaurant • Pub • Events
+</p>
+
+
+</div>
+
+
+
+
+<div class="footer-links">
+
+
+<a href="menu.html">
+Menu
+</a>
+
+
+<a href="reservations.html">
+Reservations
+</a>
+
+
+<a href="gallery.html">
+Gallery
+</a>
+
+
+</div>
+
+
+
+
+<div>
+
+
+<h3>
+Delivery
+</h3>
+
+
+<p>
+Windhoek Area
+</p>
+
+
+</div>
+
+
+
+</footer>
+
+
+
+
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
