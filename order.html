@@ -1,46 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
 
+
 <meta charset="UTF-8">
+
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-<title>Andy's Restaurant | Order Online</title>
+<title>Order Online | Andy's Bar</title>
 
 
 <link rel="stylesheet" href="style.css">
 
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 
 </head>
 
 
+
 <body>
-
-
-
-<!-- LOADER -->
-
-
-<div class="loader">
-
-<h1>
-ANDY'S
-</h1>
-
-<div class="loader-line"></div>
-
-</div>
-
 
 
 
@@ -50,11 +36,7 @@ ANDY'S
 
 
 
-
-
-
-
-<!-- NAVIGATION -->
+<!-- NAVBAR -->
 
 
 <header class="navbar">
@@ -62,15 +44,9 @@ ANDY'S
 
 <div class="logo">
 
-ANDY'S
-
-<span>
-RESTAURANT
-</span>
+Andy's Bar
 
 </div>
-
-
 
 
 
@@ -98,7 +74,7 @@ Reservations
 
 
 <a href="order.html">
-Order
+Order Online
 </a>
 
 
@@ -107,16 +83,17 @@ Events
 </a>
 
 
+
 </nav>
 
 
 
 
-<button class="reserve-btn">
+<a class="nav-button" href="menu.html">
 
-Reserve Table
+View Menu
 
-</button>
+</a>
 
 
 
@@ -139,24 +116,25 @@ Reserve Table
 <div>
 
 
-<p class="section-label">
-ANDY'S KITCHEN
+<p class="section-tag">
+
+PICK-UP SERVICE
+
 </p>
 
 
 <h1>
+
 Order Online
+
 </h1>
 
 
-
 <p>
 
-Enjoy your favourite meals
-from the comfort of your home.
+Choose your favourite meals and collect them fresh from Andy's Bar.
 
 </p>
-
 
 
 </div>
@@ -172,62 +150,50 @@ from the comfort of your home.
 
 
 
-<!-- PRODUCTS -->
+<!-- ORDER AREA -->
 
 
-<section class="order-section">
+<section class="order-container">
 
 
-<div class="section-heading">
 
 
-<p>
-OUR FAVOURITES
-</p>
+
+<!-- CUSTOMER DETAILS -->
+
+
+<div class="customer-box">
+
 
 
 <h2>
-Popular Dishes
+
+Your Details
+
 </h2>
 
 
-</div>
+
+
+<form id="orderForm">
 
 
 
+<div class="form-group">
 
 
+<label>
+
+Name
+
+</label>
 
 
-<div class="order-grid">
-
-
-
-
-
-<div class="order-card">
-
-
-<img src="assets/images/burger.jpg">
-
-
-<h3>
-Andy's Signature Burger
-</h3>
-
-
-<p>
-N$150
-</p>
-
-
-
-<button onclick="addToCart('Andys Burger')">
-
-Add To Order
-
-</button>
-
+<input 
+type="text"
+placeholder="Your name"
+required
+>
 
 
 </div>
@@ -238,31 +204,21 @@ Add To Order
 
 
 
+<div class="form-group">
 
 
-<div class="order-card">
+<label>
+
+Phone
+
+</label>
 
 
-<img src="assets/images/schnitzel.jpg">
-
-
-<h3>
-Chicken Schnitzel
-</h3>
-
-
-<p>
-N$180
-</p>
-
-
-
-<button onclick="addToCart('Chicken Schnitzel')">
-
-Add To Order
-
-</button>
-
+<input 
+type="tel"
+placeholder="+264..."
+required
+>
 
 
 </div>
@@ -274,30 +230,20 @@ Add To Order
 
 
 
-
-<div class="order-card">
-
-
-<img src="assets/images/pizza.jpg">
+<div class="form-group">
 
 
-<h3>
-German Style Pizza
-</h3>
+<label>
+
+Pickup Time
+
+</label>
 
 
-<p>
-N$140
-</p>
-
-
-
-<button onclick="addToCart('German Pizza')">
-
-Add To Order
-
-</button>
-
+<input 
+type="time"
+required
+>
 
 
 </div>
@@ -309,30 +255,19 @@ Add To Order
 
 
 
-
-<div class="order-card">
-
-
-<img src="assets/images/beer.jpg">
+<div class="form-group">
 
 
-<h3>
-Premium Drinks
-</h3>
+<label>
+
+Special Instructions
+
+</label>
 
 
-<p>
-N$45
-</p>
-
-
-
-<button onclick="addToCart('Premium Drink')">
-
-Add To Order
-
-</button>
-
+<textarea 
+placeholder="Any requests..."
+></textarea>
 
 
 </div>
@@ -342,10 +277,11 @@ Add To Order
 
 
 
+</form>
+
+
+
 </div>
-
-
-</section>
 
 
 
@@ -358,39 +294,28 @@ Add To Order
 <!-- CART -->
 
 
-<div class="cart-box">
+<div class="order-summary">
+
 
 
 <h2>
+
 Your Order
+
 </h2>
 
 
 
-<ul id="cart-items">
 
-</ul>
-
+<div id="orderItems">
 
 
 
 <p>
 
-Items:
-<span id="cart-count">
-0
-</span>
+Your cart is currently empty.
 
 </p>
-
-
-
-
-<button>
-
-Checkout
-
-</button>
 
 
 
@@ -402,16 +327,152 @@ Checkout
 
 
 
+<div class="total-box">
 
 
-<!-- WHATSAPP -->
+<h3>
+
+Total:
+
+<span id="orderTotal">
+
+N$0
+
+</span>
 
 
-<a class="whatsapp" href="https://wa.me/26400000000">
+</h3>
 
-💬
 
-</a>
+</div>
+
+
+
+
+
+
+
+<button class="primary-btn" id="checkoutButton">
+
+Place Order
+
+</button>
+
+
+
+
+<div id="orderMessage"></div>
+
+
+
+</div>
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- HOW IT WORKS -->
+
+
+<section class="steps">
+
+
+
+<h2>
+
+How It Works
+
+</h2>
+
+
+
+<div class="steps-grid">
+
+
+
+<div>
+
+
+<h3>
+
+1. Choose
+
+</h3>
+
+
+<p>
+
+Select your favourite meals from our menu.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div>
+
+
+<h3>
+
+2. Order
+
+</h3>
+
+
+<p>
+
+Submit your pickup request online.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div>
+
+
+<h3>
+
+3. Collect
+
+</h3>
+
+
+<p>
+
+Pick up your freshly prepared food.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
 
 
 
@@ -427,16 +488,21 @@ Checkout
 <footer>
 
 
-<div class="footer-brand">
+
+<div>
 
 
 <h2>
-ANDY'S
+
+Andy's Bar
+
 </h2>
 
 
 <p>
-Restaurant • Pub • Events
+
+Best Food In Windhoek
+
 </p>
 
 
@@ -449,21 +515,29 @@ Restaurant • Pub • Events
 
 
 <a href="menu.html">
+
 Menu
+
 </a>
 
 
 <a href="reservations.html">
+
 Reservations
+
 </a>
 
 
 <a href="gallery.html">
+
 Gallery
+
 </a>
 
 
+
 </div>
+
 
 
 
@@ -472,12 +546,24 @@ Gallery
 
 
 <h3>
-Delivery
+
+Contact
+
 </h3>
 
 
 <p>
-Windhoek Area
+
+Jan Jonker Street
+
+<br>
+
+Windhoek
+
+<br>
+
++264 81 602 5045
+
 </p>
 
 
@@ -493,9 +579,13 @@ Windhoek Area
 
 
 
+
+
 <script src="script.js"></script>
 
 
+
 </body>
+
 
 </html>
