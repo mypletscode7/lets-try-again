@@ -1,135 +1,269 @@
-/* =================================
-   ANDY'S RESTAURANT JAVASCRIPT
-================================= */
+/* =========================================
+   ANDY'S BAR JAVASCRIPT
+========================================= */
 
 
 
-// ================================
-// SCROLL PROGRESS BAR
-// ================================
+/* =========================================
+   MENU DATABASE
+========================================= */
 
 
-window.addEventListener("scroll", function(){
+const menuData = [
 
 
-let scrollTop = document.documentElement.scrollTop;
+{
+name:"Cheesy Smash Burger",
+category:"Burgers",
+price:65,
+image:"assets/images/burger.jpg",
+description:"Juicy beef patty with cheese, lettuce, tomato and chips."
+},
 
 
-let height = document.documentElement.scrollHeight -
-document.documentElement.clientHeight;
+{
+name:"Juicy Lucy Burger",
+category:"Burgers",
+price:155,
+image:"assets/images/burger.jpg",
+description:"Cheese-filled beef burger served with crispy chips."
+},
 
 
-let progress = (scrollTop / height) * 100;
+{
+name:"Namib Pizza",
+category:"Pizza",
+price:190,
+image:"assets/images/pizza.jpg",
+description:"Mozzarella, ham, salami and bacon."
+},
 
 
+{
+name:"Margherita Pizza",
+category:"Pizza",
+price:150,
+image:"assets/images/pizza.jpg",
+description:"Classic tomato sauce, mozzarella and oregano."
+},
 
-let bar = document.querySelector(".scroll-progress");
+
+{
+name:"500g Rump Steak",
+category:"Steaks",
+price:245,
+image:"assets/images/steak.jpg",
+description:"Free-range Namibian rump steak grilled perfectly."
+},
 
 
-if(bar){
+{
+name:"Currywurst & Chips",
+category:"German",
+price:165,
+image:"assets/images/currywurst.jpg",
+description:"Traditional German sausage with curry sauce."
+},
 
-bar.style.width = progress + "%";
 
+{
+name:"Castle Lite 500ml",
+category:"Drinks",
+price:25,
+image:"assets/images/beer.jpg",
+description:"Cold refreshing Castle Lite."
 }
+
+
+];
+
+
+
+
+
+
+
+
+
+/* =========================================
+   CREATE MENU CARDS
+========================================= */
+
+
+const menuContainer =
+document.getElementById("menuContainer");
+
+
+
+function displayMenu(items){
+
+
+if(!menuContainer) return;
+
+
+
+menuContainer.innerHTML="";
+
+
+
+items.forEach(item=>{
+
+
+const card=document.createElement("div");
+
+
+card.className="menu-card";
+
+
+
+card.innerHTML=`
+
+<img src="${item.image}" 
+style="width:100%;height:200px;object-fit:cover;border-radius:15px;">
+
+
+<h3>${item.name}</h3>
+
+
+<p>${item.description}</p>
+
+
+<h4>N$${item.price}</h4>
+
+
+
+<button 
+class="primary-btn add-cart"
+data-name="${item.name}"
+data-price="${item.price}">
+
+Add Order
+
+</button>
+
+
+`;
+
+
+
+menuContainer.appendChild(card);
+
 
 
 });
 
 
 
+}
+
+
+
+
+
+displayMenu(menuData);
 
 
 
 
 
 
-// ================================
-// NAVBAR SCROLL EFFECT
-// ================================
 
 
-window.addEventListener("scroll",()=>{
+
+/* =========================================
+   SEARCH
+========================================= */
 
 
-const navbar=document.querySelector(".navbar");
+const search =
+document.getElementById("menuSearch");
 
 
-if(navbar){
+
+if(search){
 
 
-if(window.scrollY > 80){
+search.addEventListener(
+"input",
+()=>{
 
 
-navbar.style.background="#080808";
+const value=
+search.value.toLowerCase();
+
+
+
+const filtered=
+menuData.filter(item=>
+
+item.name.toLowerCase()
+.includes(value)
+
+);
+
+
+
+displayMenu(filtered);
+
+
+
+});
 
 
 }
 
+
+
+
+
+
+
+
+
+/* =========================================
+   CATEGORY FILTERS
+========================================= */
+
+
+const filterButtons =
+document.querySelectorAll(
+".filter-buttons button"
+);
+
+
+
+filterButtons.forEach(button=>{
+
+
+button.addEventListener(
+"click",
+()=>{
+
+
+const category =
+button.dataset.category;
+
+
+
+if(category==="All"){
+
+displayMenu(menuData);
+
+}
 
 else{
 
 
-navbar.style.background="transparent";
+displayMenu(
+menuData.filter(item=>
+item.category===category
+)
 
-
-}
-
-
-}
-
-
-});
-
-
-
-
-
-
-
-
-
-// ================================
-// IMAGE LIGHTBOX
-// ================================
-
-
-const galleryImages=document.querySelectorAll(
-".premium-gallery img, .gallery-grid img"
 );
 
 
-
-const lightbox=document.querySelector(".lightbox");
-
-
-const lightboxImage=document.querySelector(
-".lightbox img"
-);
-
-
-
-const closeLightbox=document.querySelector(
-".close-lightbox"
-);
-
-
-
-galleryImages.forEach(image=>{
-
-
-image.addEventListener("click",()=>{
-
-
-if(lightbox){
-
-
-lightbox.classList.add("active");
-
-
-lightboxImage.src=image.src;
-
-
 }
+
 
 
 });
@@ -141,138 +275,44 @@ lightboxImage.src=image.src;
 
 
 
-if(closeLightbox){
 
 
-closeLightbox.addEventListener("click",()=>{
 
 
-lightbox.classList.remove("active");
-
-
-});
-
-
-}
-
-
-
-
-
-
-if(lightbox){
-
-
-lightbox.addEventListener("click",(e)=>{
-
-
-if(e.target===lightbox){
-
-
-lightbox.classList.remove("active");
-
-
-}
-
-
-});
-
-
-}
-
-
-
-
-
-
-
-
-
-// ================================
-// COUNTER ANIMATION
-// ================================
-
-
-const counters=document.querySelectorAll(
-".counter"
-);
-
-
-
-counters.forEach(counter=>{
-
-
-let target=Number(counter.dataset.target);
-
-
-
-let count=0;
-
-
-
-let speed=target/100;
-
-
-
-let update=()=>{
-
-
-count+=speed;
-
-
-
-if(count < target){
-
-
-counter.innerText=Math.floor(count);
-
-
-
-requestAnimationFrame(update);
-
-
-
-}
-
-else{
-
-
-counter.innerText=target.toLocaleString();
-
-
-}
-
-
-
-};
-
-
-
-update();
-
-
-
-});
-
-
-
-
-
-
-
-
-
-// ================================
-// ORDER CART
-// ================================
+/* =========================================
+   SHOPPING CART
+========================================= */
 
 
 let cart=[];
 
 
 
+document.addEventListener(
+"click",
+function(e){
 
-function addToCart(item){
+
+
+if(
+e.target.classList.contains(
+"add-cart"
+)
+
+){
+
+
+
+const item={
+
+name:e.target.dataset.name,
+
+price:Number(
+e.target.dataset.price
+)
+
+};
+
 
 
 cart.push(item);
@@ -283,13 +323,11 @@ updateCart();
 
 
 
-alert(
-item + " added to your order!"
-);
-
-
-
 }
+
+
+
+});
 
 
 
@@ -300,32 +338,44 @@ item + " added to your order!"
 function updateCart(){
 
 
-let list=document.getElementById(
+const count=
+document.getElementById(
+"cart-count"
+);
+
+
+const list=
+document.getElementById(
 "cart-items"
 );
 
 
 
-let count=document.getElementById(
-"cart-count"
-);
+if(!count || !list)
+return;
 
 
 
-if(list){
+count.innerHTML=
+cart.length;
+
 
 
 list.innerHTML="";
 
 
 
-cart.forEach(product=>{
+cart.forEach(item=>{
 
 
-let li=document.createElement("li");
+const li=document.createElement("li");
 
 
-li.innerHTML=product;
+li.innerHTML=
+
+`${item.name}
+- N$${item.price}`;
+
 
 
 list.appendChild(li);
@@ -335,20 +385,6 @@ list.appendChild(li);
 });
 
 
-}
-
-
-
-
-if(count){
-
-
-count.innerHTML=cart.length;
-
-
-}
-
-
 
 }
 
@@ -360,72 +396,55 @@ count.innerHTML=cart.length;
 
 
 
-// ================================
-// RESERVATION BUTTON
-// ================================
+/* =========================================
+   RESERVATION MESSAGE
+========================================= */
 
 
-const reserveButtons=document.querySelectorAll(
-".reserve-btn"
+const reservationForm=
+document.getElementById(
+"reservationForm"
 );
 
 
 
-reserveButtons.forEach(button=>{
-
-
-button.addEventListener(
-"click",
-()=>{
-
-
-window.location.href="reservations.html";
-
-
-});
-
-
-});
+if(reservationForm){
 
 
 
-
-
-
-
-
-
-// ================================
-// FORM SUBMISSION
-// ================================
-
-
-const bookingForm=document.querySelector(
-".booking-form"
-);
-
-
-
-if(bookingForm){
-
-
-bookingForm.addEventListener(
+reservationForm.addEventListener(
 "submit",
-(e)=>{
+function(e){
 
 
 e.preventDefault();
 
 
 
-alert(
-"Thank you! Your reservation request has been received."
-);
+document.getElementById(
+"reservationMessage"
+).innerHTML=
 
 
+`
 
-bookingForm.reset();
+<div class="offer-card">
 
+<h3>
+Reservation Received!
+</h3>
+
+<p>
+Thank you for choosing Andy's Bar.
+We will contact you shortly.
+</p>
+
+</div>
+
+`;
+
+
+reservationForm.reset();
 
 
 });
@@ -441,17 +460,245 @@ bookingForm.reset();
 
 
 
-// ================================
-// SMOOTH PAGE LOAD
-// ================================
+/* =========================================
+   ORDER BUTTON
+========================================= */
 
 
-window.addEventListener(
-"load",
+const checkout=
+document.getElementById(
+"checkoutButton"
+);
+
+
+
+if(checkout){
+
+
+checkout.addEventListener(
+"click",
 ()=>{
 
 
-document.body.style.opacity="1";
+document.getElementById(
+"orderMessage"
+).innerHTML=
+
+
+`
+
+<div class="offer-card">
+
+<h3>
+Order Submitted!
+</h3>
+
+<p>
+Your pickup order has been received.
+We will prepare it shortly.
+</p>
+
+
+</div>
+
+`;
 
 
 });
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================================
+   GALLERY LIGHTBOX
+========================================= */
+
+
+const galleryImages =
+document.querySelectorAll(
+".gallery-item img"
+);
+
+
+
+const lightbox =
+document.querySelector(
+".lightbox"
+);
+
+
+
+if(lightbox){
+
+
+
+const lightboxImage =
+lightbox.querySelector(
+"img"
+);
+
+
+
+galleryImages.forEach(image=>{
+
+
+image.addEventListener(
+"click",
+()=>{
+
+
+lightbox.style.display="flex";
+
+lightboxImage.src=
+image.src;
+
+
+
+});
+
+
+});
+
+
+
+lightbox.addEventListener(
+"click",
+()=>{
+
+
+lightbox.style.display="none";
+
+
+});
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================================
+   SCROLL ANIMATION
+========================================= */
+
+
+const sections =
+document.querySelectorAll(
+"section"
+);
+
+
+
+const observer =
+new IntersectionObserver(
+(entries)=>{
+
+
+entries.forEach(entry=>{
+
+
+if(entry.isIntersecting){
+
+
+entry.target.style.opacity=1;
+
+entry.target.style.transform=
+"translateY(0)";
+
+
+}
+
+
+});
+
+
+},
+{
+
+threshold:.15
+
+}
+
+);
+
+
+
+
+sections.forEach(section=>{
+
+
+section.style.opacity=0;
+
+section.style.transform=
+"translateY(40px)";
+
+section.style.transition=
+"0.8s ease";
+
+
+observer.observe(section);
+
+
+});
+
+
+
+
+
+
+
+/* =========================================
+   SCROLL PROGRESS
+========================================= */
+
+
+window.addEventListener(
+"scroll",
+()=>{
+
+
+const height=
+document.documentElement
+.scrollHeight -
+document.documentElement.clientHeight;
+
+
+
+const progress=
+(window.scrollY / height)*100;
+
+
+
+const bar =
+document.querySelector(
+".scroll-progress"
+);
+
+
+
+if(bar){
+
+bar.style.width=
+progress+"%";
+
+
+}
+
+
+
+});
+
