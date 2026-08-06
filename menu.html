@@ -7,38 +7,19 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-<title>Andy's Restaurant | Menu</title>
-
+<title>Menu | Andy's Bar</title>
 
 <link rel="stylesheet" href="style.css">
 
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
 
 </head>
 
 
+
 <body>
-
-
-<!-- LOADER -->
-
-<div class="loader">
-
-<h1>
-ANDY'S
-</h1>
-
-<div class="loader-line"></div>
-
-</div>
-
 
 
 
@@ -48,7 +29,7 @@ ANDY'S
 
 
 
-<!-- NAVIGATION -->
+<!-- NAVBAR -->
 
 
 <header class="navbar">
@@ -56,11 +37,7 @@ ANDY'S
 
 <div class="logo">
 
-ANDY'S
-
-<span>
-RESTAURANT
-</span>
+Andy's Bar
 
 </div>
 
@@ -68,41 +45,65 @@ RESTAURANT
 
 <nav>
 
+
 <a href="index.html">
+
 Home
+
 </a>
+
+
 
 <a href="menu.html">
+
 Menu
+
 </a>
+
+
 
 <a href="gallery.html">
+
 Gallery
+
 </a>
+
+
 
 <a href="reservations.html">
+
 Reservations
+
 </a>
+
+
 
 <a href="order.html">
-Order
+
+Order Online
+
 </a>
 
+
+
 <a href="events.html">
+
 Events
+
 </a>
+
 
 
 </nav>
 
 
 
-<button class="reserve-btn">
 
-Reserve Table
+<a class="nav-button" href="order.html">
 
-</button>
+Order Now
 
+</a>
 
 
 </header>
@@ -124,26 +125,30 @@ Reserve Table
 <div>
 
 
-<p class="section-label">
-ANDY'S CUISINE
+<p class="section-tag">
+
+ANDY'S BAR
+
 </p>
 
 
 <h1>
+
 Our Menu
+
 </h1>
 
 
 <p>
 
-Authentic flavours,
-quality ingredients,
-and unforgettable dining experiences.
+German classics, Namibian favourites,
+fresh pizzas, burgers, steaks and more.
 
 </p>
 
 
 </div>
+
 
 
 </section>
@@ -156,403 +161,71 @@ and unforgettable dining experiences.
 
 
 
-<!-- MENU CONTENT -->
+<!-- MENU CONTROLS -->
 
 
-<section class="restaurant-menu">
+<section class="menu-controls">
 
 
+<input 
+type="text"
+id="menuSearch"
+placeholder="Search your favourite meal..."
+>
 
 
 
-<!-- STARTERS -->
+<div class="filter-buttons">
 
 
-<div class="menu-category">
+<button data-category="All">
 
+All
 
-<h2>
-Starters
-</h2>
+</button>
 
 
+<button data-category="Burgers">
 
-<div class="menu-items">
+Burgers
 
+</button>
 
 
-<div class="menu-item">
 
-<div>
+<button data-category="Pizza">
 
-<h3>
-Garlic Bread
-</h3>
+Pizza
 
-<p>
-Fresh baked bread with garlic butter and herbs.
-</p>
+</button>
 
-</div>
 
 
-<span>
-N$45
-</span>
+<button data-category="Steaks">
 
+Steaks
 
-</div>
+</button>
 
 
 
+<button data-category="German">
 
+German Specials
 
-<div class="menu-item">
+</button>
 
-<div>
 
-<h3>
-Chicken Wings
-</h3>
 
-<p>
-Crispy wings served with Andy's signature sauce.
-</p>
+<button data-category="Drinks">
 
-</div>
-
-
-<span>
-N$95
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="menu-item">
-
-<div>
-
-<h3>
-Beer Pretzel
-</h3>
-
-<p>
-Traditional German-style pretzel served warm.
-</p>
-
-</div>
-
-
-<span>
-N$70
-</span>
-
-
-</div>
-
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- MAIN COURSES -->
-
-
-<div class="menu-category">
-
-
-<h2>
-Main Courses
-</h2>
-
-
-
-
-<div class="menu-items">
-
-
-
-<div class="menu-item">
-
-<div>
-
-<h3>
-Traditional Schnitzel
-</h3>
-
-<p>
-Golden crumbed chicken schnitzel with fries and salad.
-</p>
-
-</div>
-
-
-<span>
-N$180
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="menu-item">
-
-<div>
-
-<h3>
-Andy's Signature Burger
-</h3>
-
-<p>
-Premium beef patty, cheese and fresh ingredients.
-</p>
-
-</div>
-
-
-<span>
-N$150
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="menu-item">
-
-<div>
-
-<h3>
-Grilled Steak
-</h3>
-
-<p>
-Perfectly grilled steak served with seasonal sides.
-</p>
-
-</div>
-
-
-<span>
-N$250
-</span>
-
-
-</div>
-
-
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- SEAFOOD -->
-
-
-<div class="menu-category">
-
-
-<h2>
-Seafood
-</h2>
-
-
-
-
-<div class="menu-items">
-
-
-
-<div class="menu-item">
-
-<div>
-
-<h3>
-Grilled Fish
-</h3>
-
-<p>
-Fresh Namibian fish with lemon butter sauce.
-</p>
-
-</div>
-
-
-<span>
-N$190
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="menu-item">
-
-<div>
-
-<h3>
-Calamari
-</h3>
-
-<p>
-Crispy calamari served with chips and salad.
-</p>
-
-</div>
-
-
-<span>
-N$160
-</span>
-
-
-</div>
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- DRINKS -->
-
-
-<div class="menu-category">
-
-
-<h2>
 Drinks
-</h2>
 
-
-
-
-<div class="menu-items">
-
-
-
-<div class="menu-item">
-
-<div>
-
-<h3>
-Namibian Craft Beer
-</h3>
-
-<p>
-Cold locally brewed beer.
-</p>
-
-</div>
-
-
-<span>
-N$45
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="menu-item">
-
-<div>
-
-<h3>
-Classic Cocktails
-</h3>
-
-<p>
-Handcrafted cocktails prepared by our bartenders.
-</p>
-
-</div>
-
-
-<span>
-N$85
-</span>
-
-
-</div>
-
-
-
-
-
-<div class="menu-item">
-
-<div>
-
-<h3>
-Premium Wines
-</h3>
-
-<p>
-A selection of quality wines.
-</p>
-
-</div>
-
-
-<span>
-N$90
-</span>
-
-
-</div>
+</button>
 
 
 
 </div>
-
-
-</div>
-
-
-
 
 
 
@@ -566,14 +239,81 @@ N$90
 
 
 
-<!-- WHATSAPP -->
+<!-- MENU ITEMS -->
 
 
-<a class="whatsapp" href="https://wa.me/26400000000">
+<section class="menu-section">
 
-💬
+
+<div 
+class="menu-grid"
+id="menuContainer"
+>
+
+
+
+<!-- JavaScript creates menu cards here -->
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- CART -->
+
+
+<div class="cart-box">
+
+
+<h3>
+
+🛒 Your Order
+
+</h3>
+
+
+<p>
+
+Items:
+
+<span id="cart-count">
+
+0
+
+</span>
+
+</p>
+
+
+
+<ul id="cart-items">
+
+</ul>
+
+
+
+
+<a href="order.html" class="primary-btn">
+
+Checkout
 
 </a>
+
+
+
+</div>
+
 
 
 
@@ -588,16 +328,21 @@ N$90
 <footer>
 
 
-<div class="footer-brand">
+
+<div>
 
 
 <h2>
-ANDY'S
+
+Andy's Bar
+
 </h2>
 
 
 <p>
-Restaurant • Pub • Events
+
+Best Food In Windhoek
+
 </p>
 
 
@@ -610,21 +355,30 @@ Restaurant • Pub • Events
 
 
 <a href="index.html">
+
 Home
-</a>
 
-
-<a href="gallery.html">
-Gallery
 </a>
 
 
 <a href="reservations.html">
+
 Reservations
+
 </a>
 
 
+<a href="order.html">
+
+Order Online
+
+</a>
+
+
+
 </div>
+
+
 
 
 
@@ -632,12 +386,24 @@ Reservations
 
 
 <h3>
+
 Contact
+
 </h3>
 
 
 <p>
-Windhoek, Namibia
+
+Jan Jonker Street
+
+<br>
+
+Windhoek
+
+<br>
+
++264 81 602 5045
+
 </p>
 
 
@@ -646,6 +412,7 @@ Windhoek, Namibia
 
 
 </footer>
+
 
 
 
