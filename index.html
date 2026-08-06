@@ -1,17 +1,21 @@
-/<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+    <title>Andy's Bar | Best Food in Windhoek</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Andy's Bar Windhoek - German inspired cuisine, Namibian hospitality, sports, drinks and unforgettable experiences.">
 
-<title>Andy's Bar | Best Food in Windhoek</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
@@ -19,9 +23,17 @@
 <body>
 
 
-<!-- SCROLL BAR -->
+<!-- LOADING SCREEN -->
 
-<div class="scroll-progress"></div>
+<div class="loader">
+
+    <div class="loader-logo">
+        ANDY'S BAR
+    </div>
+
+    <div class="loader-line"></div>
+
+</div>
 
 
 
@@ -29,38 +41,31 @@
 
 <header class="navbar">
 
-
-<div class="logo">
-
-Andy's Bar
-
-</div>
+    <div class="logo">
+        ANDY'S BAR
+    </div>
 
 
+    <nav>
 
-<nav>
+        <a href="#home">Home</a>
 
-<a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
 
-<a href="menu.html">Menu</a>
+        <a href="#specials">Special Offers</a>
 
-<a href="gallery.html">Gallery</a>
+        <a href="#about">About</a>
 
-<a href="reservations.html">Reservations</a>
+        <a href="#gallery">Gallery</a>
 
-<a href="order.html">Order Online</a>
+        <a href="#contact">Contact</a>
 
-<a href="events.html">Events</a>
-
-</nav>
-
+    </nav>
 
 
-<a class="nav-button" href="reservations.html">
-
-Reserve Table
-
-</a>
+    <button class="order-btn">
+        Order Online
+    </button>
 
 
 </header>
@@ -72,75 +77,65 @@ Reserve Table
 <!-- HERO SECTION -->
 
 
-<section class="hero">
+<section class="hero" id="home">
+
+
+    <div class="hero-overlay"></div>
+
+
+    <div class="hero-content">
+
+
+        <p class="hero-small">
+            ESTABLISHED 2011 • WINDHOEK, NAMIBIA
+        </p>
 
 
 
-<div class="hero-content">
+        <h1>
+            ANDY'S BAR
+        </h1>
 
 
-<p class="small-title">
-
-ESTABLISHED 2011
-
-</p>
-
-
-
-<h1>
-
-Andy's Bar
-
-</h1>
+        <h2>
+            Where German Tradition
+            <br>
+            Meets Namibian Hospitality
+        </h2>
 
 
 
-<h2>
+        <p class="hero-description">
 
-Best Food In Windhoek
+            Experience authentic food, cold drinks,
+            live sports and unforgettable moments.
 
-</h2>
-
-
-
-<p>
-
-German tradition combined with Namibian hospitality.
-Great food, live sports, pool tables and unforgettable moments.
-
-</p>
+        </p>
 
 
 
-<div class="hero-buttons">
+        <div class="hero-buttons">
 
 
-<a href="order.html" class="primary-btn">
-
-Order Online
-
-</a>
+            <a href="menu.html" class="primary-btn">
+                View Menu
+            </a>
 
 
-<a href="reservations.html" class="secondary-btn">
-
-Book A Table
-
-</a>
+            <a href="#reservation" class="secondary-btn">
+                Reserve Table
+            </a>
 
 
-</div>
+        </div>
 
 
 
-</div>
+    </div>
 
 
 
 </section>
-
-
-
 
 
 
@@ -151,65 +146,92 @@ Book A Table
 <!-- SPECIAL OFFERS -->
 
 
-<section class="offers">
+<section class="specials" id="specials">
+
+
+<div class="section-title">
+
+<p>
+TODAY'S DEALS
+</p>
+
+<h2>
+Special Offers
+</h2>
+
+</div>
+
+
+
+<div class="offer-container">
+
+
+<div class="offer-card">
+
+
+<div class="offer-badge">
+HOT
+</div>
+
+
+<h3>
+Castle Lite Special
+</h3>
+
+
+<p>
+2 x 500ml Castle Lite
+</p>
+
+
+<strong>
+N$50
+</strong>
+
+
+
+<button>
+Order Now
+</button>
+
+
+</div>
+
 
 
 
 <div class="offer-card">
 
 
+<div class="offer-badge">
+NEW
+</div>
 
-<div>
+
+<h3>
+Vodka Energy Deal
+</h3>
 
 
 <p>
-
-🔥 SPECIAL OFFER
-
+2 x Double Vodka
++
+Energy Drink
 </p>
 
 
-
-<h2>
-
-N$50 Drinks Special
-
-</h2>
-
-
-
-<h3>
-
-2 x 500ml Castle Lite
-
-</h3>
-
-
-<span>
-
-OR
-
-</span>
-
-
-<h3>
-
-2 x Double Vodka
-+ Energy Drink
-
-</h3>
-
-
-
-</div>
+<strong>
+N$50
+</strong>
 
 
 
 <button>
-
-View Offers
-
+Order Now
 </button>
+
+
+</div>
 
 
 
@@ -227,395 +249,211 @@ View Offers
 
 
 
-<!-- ABOUT SECTION -->
+<!-- ABOUT -->
 
 
-<section class="about">
-
+<section class="about" id="about">
 
 
 <div class="about-image">
 
+<div class="image-placeholder">
 
-<img src="assets/images/restaurant.jpg" alt="Andy's Bar Restaurant">
+Andy's Restaurant
 
+</div>
 
 </div>
 
 
 
 
-<div class="about-text">
+<div class="about-content">
 
 
 <p class="section-tag">
-
-ABOUT ANDY'S BAR
-
+ABOUT ANDY'S
 </p>
 
 
-
 <h2>
-
 A Local Favourite Since 2011
-
 </h2>
-
-
 
 
 <p>
 
 Established in 2011, Andy's Bar is a beloved local spot in Windhoek.
-We blend a vibrant German atmosphere with true Namibian hospitality.
+We combine German heritage with Namibian hospitality, creating a
+comfortable atmosphere for food lovers, sports fans and friends.
 
 </p>
 
 
-
-<p>
-
-Our restaurant offers traditional German cuisine,
-local favourites, refreshing drinks, pool tables,
-and extensive sports coverage across multiple TVs.
-
-</p>
-
-
-
-
-<div class="about-list">
+<div class="features">
 
 
 <div>
-
-🍺 German Inspired Food
-
+🍺
+<span>
+German Inspired Atmosphere
+</span>
 </div>
 
 
 <div>
-
-⚽ Live Sports
-
-</div>
-
-
-<div>
-
-🎱 Pool Tables
-
-</div>
-
-
-<div>
-
-🥩 Quality Meals
-
-</div>
-
-
-
-</div>
-
-
-
-
-</div>
-
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- OPENING HOURS -->
-
-
-<section class="hours">
-
-
-
-<h2>
-
-Opening Hours
-
-</h2>
-
-
-
-<div class="hours-grid">
-
-
-
-<div class="hour-card">
-
-
-<h3>
-
-Restaurant
-
-</h3>
-
-
-<p>
-
-Monday - Sunday
-
-</p>
-
-
-<strong>
-
-11:00 AM - 11:59 PM
-
-</strong>
-
-
-</div>
-
-
-
-
-
-<div class="hour-card">
-
-
-<h3>
-
-Pickup Service
-
-</h3>
-
-
-<p>
-
-Monday - Sunday
-
-</p>
-
-
-<strong>
-
-11:00 AM - 10:00 PM
-
-</strong>
-
-
-</div>
-
-
-
-
-
-
-<div class="hour-card">
-
-
-<h3>
-
-Table Reservation
-
-</h3>
-
-
-<p>
-
-Monday - Sunday
-
-</p>
-
-
-<strong>
-
-11:00 AM - 09:00 PM
-
-</strong>
-
-
-</div>
-
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- ORDER CTA -->
-
-
-<section class="online-order">
-
-
-
-<div>
-
-
-<p class="section-tag">
-
-NEW!
-
-</p>
-
-
-
-<h2>
-
-Online Ordering Now Available
-
-</h2>
-
-
-
-<p>
-
-Choose your favourite meal.
-Place your order.
-Collect when it is ready.
-
-</p>
-
-
-
-<a href="order.html" class="primary-btn">
-
-Start Order
-
-</a>
-
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- FOOD CATEGORIES -->
-
-
-<section class="categories">
-
-
-<h2>
-
-Explore Our Menu
-
-</h2>
-
-
-
-<div class="category-grid">
-
-
-<div>
-
 🍔
+<span>
+Quality Food
+</span>
+</div>
 
-<h3>
 
-Burgers
+<div>
+🏉
+<span>
+Live Sports Coverage
+</span>
+</div>
 
-</h3>
+
+<div>
+🎱
+<span>
+Pool Tables
+</span>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- FEATURED MENU -->
+
+
+<section class="featured-menu">
+
+
+<div class="section-title">
+
+<p>
+OUR FAVOURITES
+</p>
+
+<h2>
+Popular Dishes
+</h2>
 
 </div>
 
 
 
-<div>
+<div class="food-grid">
 
-🍕
+
+
+<div class="food-card">
+
+<div class="food-image">
+
+Burger
+
+</div>
+
 
 <h3>
+Cheesy Smash Burger
+</h3>
+
+<p>
+Juicy beef burger with cheese,
+lettuce, tomatoes and chips.
+</p>
+
+
+<span>
+From N$65
+</span>
+
+
+</div>
+
+
+
+
+
+<div class="food-card">
+
+
+<div class="food-image">
+
+Steak
+
+</div>
+
+
+<h3>
+500g Club Steak
+</h3>
+
+
+<p>
+Premium Namibian steak served
+with chips and garlic butter.
+</p>
+
+
+<span>
+N$166.67
+</span>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="food-card">
+
+
+<div class="food-image">
 
 Pizza
 
-</h3>
-
 </div>
 
 
-
-<div>
-
-🥩
-
 <h3>
-
-Steaks
-
+Andy's Pizza Selection
 </h3>
 
-</div>
+
+<p>
+Freshly prepared pizzas with
+quality ingredients.
+</p>
 
 
+<span>
+From N$150
+</span>
 
-
-<div>
-
-🇩🇪
-
-<h3>
-
-German Specials
-
-</h3>
-
-</div>
-
-
-
-
-<div>
-
-🍝
-
-<h3>
-
-Pasta
-
-</h3>
-
-</div>
-
-
-
-
-<div>
-
-🍺
-
-<h3>
-
-Drinks
-
-</h3>
 
 </div>
 
@@ -635,35 +473,85 @@ Drinks
 
 
 
-<!-- GALLERY PREVIEW -->
+<!-- GALLERY -->
 
 
-<section class="gallery-preview">
+<section class="gallery" id="gallery">
 
+
+<div class="section-title">
+
+<p>
+EXPERIENCE ANDY'S
+</p>
 
 
 <h2>
-
-Always Good Times At Andy's
-
+Restaurant Gallery
 </h2>
+
+
+</div>
 
 
 
 <div class="gallery-grid">
 
 
-<img src="assets/images/rugby.jpg">
+<div>
+Inside Restaurant
+</div>
 
-<img src="assets/images/interior.jpg">
 
-<img src="assets/images/beer.jpg">
+<div>
+Outdoor Area
+</div>
 
-<img src="assets/images/events.jpg">
+
+<div>
+Rugby Nights
+</div>
+
+
+<div>
+Beer Towers
+</div>
 
 
 </div>
 
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- RESERVATION CTA -->
+
+
+<section class="reservation" id="reservation">
+
+
+<h2>
+Ready for a Great Time?
+</h2>
+
+
+<p>
+Book your table today and experience Andy's Bar.
+</p>
+
+
+
+<button>
+Reserve Now
+</button>
 
 
 </section>
@@ -679,35 +567,59 @@ Always Good Times At Andy's
 <!-- CONTACT -->
 
 
-<section class="contact">
+<section class="contact" id="contact">
+
+
+<div>
 
 
 <h2>
-
-Visit Andy's Bar
-
+Contact Andy's Bar
 </h2>
 
 
-
 <p>
-
-Jan Jonker Street
-Show Grounds
-
-<br>
-
+📍 Jan Jonker Street,
+Show Grounds,
 Windhoek, Namibia
-
 </p>
-
 
 
 <p>
-
 ☎ +264 81 602 5045
-
 </p>
+
+
+</div>
+
+
+
+<div>
+
+
+<h3>
+Opening Hours
+</h3>
+
+
+<p>
+Monday - Sunday
+<br>
+11:00 - 23:59
+</p>
+
+
+<h3>
+Pickup Service
+</h3>
+
+
+<p>
+11:00 - 22:00
+</p>
+
+
+</div>
 
 
 
@@ -727,84 +639,42 @@ Windhoek, Namibia
 <footer>
 
 
-
-<div>
-
-
 <h2>
-
-Andy's Bar
-
+ANDY'S BAR
 </h2>
 
 
 <p>
-
-Best Food In Windhoek
-
+Good Food.
+Cold Drinks.
+Great Memories.
 </p>
-
-
-</div>
-
 
 
 
 <div class="footer-links">
 
-
 <a href="menu.html">
-
 Menu
-
 </a>
 
-
-<a href="reservations.html">
-
-Reservations
-
+<a href="#specials">
+Specials
 </a>
 
-
-<a href="order.html">
-
-Order Online
-
+<a href="#contact">
+Contact
 </a>
-
-
 
 </div>
 
 
 
+<p class="copyright">
 
-
-<div>
-
-
-<h3>
-
-Opening Hours
-
-</h3>
-
-
-<p>
-
-Everyday
-
-<br>
-
-11:00 - 23:59
+© 2026 Andy's Bar. All Rights Reserved.
 
 </p>
-
-
-</div>
-
-
 
 
 </footer>
@@ -813,7 +683,8 @@ Everyday
 
 
 
-<script src="script.js"></script>
+
+<script src="js/main.js"></script>
 
 
 </body>
