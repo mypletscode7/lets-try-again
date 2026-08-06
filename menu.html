@@ -7,25 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Menu | Andy's Bar</title>
 
-<link rel="stylesheet" href="style.css">
+<title>Andy's Bar | Menu</title>
 
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="stylesheet" href="css/menu.css">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
 
 </head>
 
 
-
 <body>
-
-
-
-<div class="scroll-progress"></div>
-
-
 
 
 
@@ -36,79 +33,45 @@
 
 
 <div class="logo">
-
-Andy's Bar
-
+ANDY'S BAR
 </div>
-
 
 
 <nav>
 
-
 <a href="index.html">
-
 Home
-
 </a>
-
-
 
 <a href="menu.html">
-
 Menu
-
 </a>
 
-
-
-<a href="gallery.html">
-
-Gallery
-
+<a href="index.html#specials">
+Specials
 </a>
 
-
-
-<a href="reservations.html">
-
-Reservations
-
+<a href="index.html#contact">
+Contact
 </a>
-
-
-
-<a href="order.html">
-
-Order Online
-
-</a>
-
-
-
-<a href="events.html">
-
-Events
-
-</a>
-
 
 
 </nav>
 
 
 
+<button class="cart-button">
 
-<a class="nav-button" href="order.html">
+🛒 Cart
 
-Order Now
+<span id="cart-count">
+0
+</span>
 
-</a>
+</button>
 
 
 </header>
-
-
 
 
 
@@ -125,30 +88,22 @@ Order Now
 <div>
 
 
-<p class="section-tag">
-
+<p>
 ANDY'S BAR
-
 </p>
 
 
 <h1>
-
 Our Menu
-
 </h1>
 
 
-<p>
-
-German classics, Namibian favourites,
-fresh pizzas, burgers, steaks and more.
-
-</p>
+<h2>
+German Classics • Namibian Favourites • Premium Drinks
+</h2>
 
 
 </div>
-
 
 
 </section>
@@ -161,7 +116,7 @@ fresh pizzas, burgers, steaks and more.
 
 
 
-<!-- MENU CONTROLS -->
+<!-- SEARCH -->
 
 
 <section class="menu-controls">
@@ -169,39 +124,33 @@ fresh pizzas, burgers, steaks and more.
 
 <input 
 type="text"
-id="menuSearch"
-placeholder="Search your favourite meal..."
+id="search"
+placeholder="Search food or drinks..."
 >
 
 
 
-<div class="filter-buttons">
+<div class="categories">
 
 
-<button data-category="All">
+<button class="category active"
+data-category="all">
 
 All
 
 </button>
 
 
-<button data-category="Burgers">
+<button class="category"
+data-category="burger">
 
 Burgers
 
 </button>
 
 
-
-<button data-category="Pizza">
-
-Pizza
-
-</button>
-
-
-
-<button data-category="Steaks">
+<button class="category"
+data-category="steak">
 
 Steaks
 
@@ -209,15 +158,26 @@ Steaks
 
 
 
-<button data-category="German">
+<button class="category"
+data-category="pizza">
 
-German Specials
+Pizza
 
 </button>
 
 
 
-<button data-category="Drinks">
+<button class="category"
+data-category="german">
+
+German
+
+</button>
+
+
+
+<button class="category"
+data-category="drinks">
 
 Drinks
 
@@ -242,17 +202,15 @@ Drinks
 <!-- MENU ITEMS -->
 
 
-<section class="menu-section">
+<section class="menu-container">
 
 
-<div 
-class="menu-grid"
-id="menuContainer"
->
+<div id="menu-grid">
 
 
 
-<!-- JavaScript creates menu cards here -->
+
+<!-- ITEMS LOADED BY JAVASCRIPT -->
 
 
 
@@ -270,45 +228,67 @@ id="menuContainer"
 
 
 
-<!-- CART -->
+<!-- SHOPPING CART -->
 
 
-<div class="cart-box">
+<div class="cart-panel">
 
 
-<h3>
+<div class="cart-header">
 
-🛒 Your Order
+<h2>
+Your Order
+</h2>
 
-</h3>
+
+<button id="close-cart">
+
+✕
+
+</button>
+
+
+</div>
+
+
+
+
+
+<div id="cart-items">
 
 
 <p>
-
-Items:
-
-<span id="cart-count">
-
-0
-
-</span>
-
+Your cart is empty
 </p>
 
 
-
-<ul id="cart-items">
-
-</ul>
+</div>
 
 
 
 
-<a href="order.html" class="primary-btn">
 
-Checkout
+<div class="cart-total">
 
-</a>
+
+Total:
+
+<strong id="cart-total">
+N$0
+</strong>
+
+
+</div>
+
+
+
+
+
+<button class="checkout">
+
+Proceed To Checkout
+
+</button>
 
 
 
@@ -322,93 +302,77 @@ Checkout
 
 
 
-<!-- FOOTER -->
+<!-- CHECKOUT POPUP -->
+
+
+<div class="checkout-modal">
+
+
+
+<div class="checkout-box">
+
+
+<button class="close-checkout">
+✕
+</button>
+
+
+
+<h2>
+Pickup Order
+</h2>
+
+
+<input 
+placeholder="Your Name"
+>
+
+
+
+<input 
+placeholder="Phone Number"
+>
+
+
+
+<textarea
+placeholder="Special instructions">
+</textarea>
+
+
+
+
+<button>
+
+Confirm Order
+
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
 
 
 <footer>
 
 
-
-<div>
-
-
 <h2>
-
-Andy's Bar
-
+ANDY'S BAR
 </h2>
 
 
 <p>
-
-Best Food In Windhoek
-
+Good Food. Cold Drinks. Great Memories.
 </p>
-
-
-</div>
-
-
-
-
-<div class="footer-links">
-
-
-<a href="index.html">
-
-Home
-
-</a>
-
-
-<a href="reservations.html">
-
-Reservations
-
-</a>
-
-
-<a href="order.html">
-
-Order Online
-
-</a>
-
-
-
-</div>
-
-
-
-
-
-<div>
-
-
-<h3>
-
-Contact
-
-</h3>
-
-
-<p>
-
-Jan Jonker Street
-
-<br>
-
-Windhoek
-
-<br>
-
-+264 81 602 5045
-
-</p>
-
-
-</div>
-
 
 
 </footer>
@@ -418,9 +382,7 @@ Windhoek
 
 
 
-
-
-<script src="script.js"></script>
+<script src="js/menu.js"></script>
 
 
 </body>
