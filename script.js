@@ -1,609 +1,45 @@
-/* =========================================
-   ANDY'S BAR JAVASCRIPT
-========================================= */
+/* ==========================================
+   ANDY'S BAR V3 JAVASCRIPT
+   PREMIUM INTERACTIONS
+========================================== */
 
 
 
-/* =========================================
-   MENU DATABASE
-========================================= */
+/* ==========================================
+   PAGE LOADING ANIMATION
+========================================== */
 
 
-const menuData = [
-
-
-{
-name:"Cheesy Smash Burger",
-category:"Burgers",
-price:65,
-image:"assets/images/burger.jpg",
-description:"Juicy beef patty with cheese, lettuce, tomato and chips."
-},
-
-
-{
-name:"Juicy Lucy Burger",
-category:"Burgers",
-price:155,
-image:"assets/images/burger.jpg",
-description:"Cheese-filled beef burger served with crispy chips."
-},
-
-
-{
-name:"Namib Pizza",
-category:"Pizza",
-price:190,
-image:"assets/images/pizza.jpg",
-description:"Mozzarella, ham, salami and bacon."
-},
-
-
-{
-name:"Margherita Pizza",
-category:"Pizza",
-price:150,
-image:"assets/images/pizza.jpg",
-description:"Classic tomato sauce, mozzarella and oregano."
-},
-
-
-{
-name:"500g Rump Steak",
-category:"Steaks",
-price:245,
-image:"assets/images/steak.jpg",
-description:"Free-range Namibian rump steak grilled perfectly."
-},
-
-
-{
-name:"Currywurst & Chips",
-category:"German",
-price:165,
-image:"assets/images/currywurst.jpg",
-description:"Traditional German sausage with curry sauce."
-},
-
-
-{
-name:"Castle Lite 500ml",
-category:"Drinks",
-price:25,
-image:"assets/images/beer.jpg",
-description:"Cold refreshing Castle Lite."
-}
-
-
-];
-
-
-
-
-
-
-
-
-
-/* =========================================
-   CREATE MENU CARDS
-========================================= */
-
-
-const menuContainer =
-document.getElementById("menuContainer");
-
-
-
-function displayMenu(items){
-
-
-if(!menuContainer) return;
-
-
-
-menuContainer.innerHTML="";
-
-
-
-items.forEach(item=>{
-
-
-const card=document.createElement("div");
-
-
-card.className="menu-card";
-
-
-
-card.innerHTML=`
-
-<img src="${item.image}" 
-style="width:100%;height:200px;object-fit:cover;border-radius:15px;">
-
-
-<h3>${item.name}</h3>
-
-
-<p>${item.description}</p>
-
-
-<h4>N$${item.price}</h4>
-
-
-
-<button 
-class="primary-btn add-cart"
-data-name="${item.name}"
-data-price="${item.price}">
-
-Add Order
-
-</button>
-
-
-`;
-
-
-
-menuContainer.appendChild(card);
-
-
-
-});
-
-
-
-}
-
-
-
-
-
-displayMenu(menuData);
-
-
-
-
-
-
-
-
-
-/* =========================================
-   SEARCH
-========================================= */
-
-
-const search =
-document.getElementById("menuSearch");
-
-
-
-if(search){
-
-
-search.addEventListener(
-"input",
+window.addEventListener(
+"load",
 ()=>{
 
-
-const value=
-search.value.toLowerCase();
-
-
-
-const filtered=
-menuData.filter(item=>
-
-item.name.toLowerCase()
-.includes(value)
-
+document.body.classList.add(
+"loaded"
 );
-
-
-
-displayMenu(filtered);
-
-
 
 });
 
 
-}
 
 
 
 
 
 
+/* ==========================================
+   SCROLL REVEAL ANIMATION
+========================================== */
 
 
-
-/* =========================================
-   CATEGORY FILTERS
-========================================= */
-
-
-const filterButtons =
+const revealElements =
 document.querySelectorAll(
-".filter-buttons button"
+".reveal, section, .menu-card, .offer-card, .why-card"
 );
 
 
 
-filterButtons.forEach(button=>{
-
-
-button.addEventListener(
-"click",
-()=>{
-
-
-const category =
-button.dataset.category;
-
-
-
-if(category==="All"){
-
-displayMenu(menuData);
-
-}
-
-else{
-
-
-displayMenu(
-menuData.filter(item=>
-item.category===category
-)
-
-);
-
-
-}
-
-
-
-});
-
-
-});
-
-
-
-
-
-
-
-
-
-/* =========================================
-   SHOPPING CART
-========================================= */
-
-
-let cart=[];
-
-
-
-document.addEventListener(
-"click",
-function(e){
-
-
-
-if(
-e.target.classList.contains(
-"add-cart"
-)
-
-){
-
-
-
-const item={
-
-name:e.target.dataset.name,
-
-price:Number(
-e.target.dataset.price
-)
-
-};
-
-
-
-cart.push(item);
-
-
-
-updateCart();
-
-
-
-}
-
-
-
-});
-
-
-
-
-
-
-
-function updateCart(){
-
-
-const count=
-document.getElementById(
-"cart-count"
-);
-
-
-const list=
-document.getElementById(
-"cart-items"
-);
-
-
-
-if(!count || !list)
-return;
-
-
-
-count.innerHTML=
-cart.length;
-
-
-
-list.innerHTML="";
-
-
-
-cart.forEach(item=>{
-
-
-const li=document.createElement("li");
-
-
-li.innerHTML=
-
-`${item.name}
-- N$${item.price}`;
-
-
-
-list.appendChild(li);
-
-
-
-});
-
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =========================================
-   RESERVATION MESSAGE
-========================================= */
-
-
-const reservationForm=
-document.getElementById(
-"reservationForm"
-);
-
-
-
-if(reservationForm){
-
-
-
-reservationForm.addEventListener(
-"submit",
-function(e){
-
-
-e.preventDefault();
-
-
-
-document.getElementById(
-"reservationMessage"
-).innerHTML=
-
-
-`
-
-<div class="offer-card">
-
-<h3>
-Reservation Received!
-</h3>
-
-<p>
-Thank you for choosing Andy's Bar.
-We will contact you shortly.
-</p>
-
-</div>
-
-`;
-
-
-reservationForm.reset();
-
-
-});
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =========================================
-   ORDER BUTTON
-========================================= */
-
-
-const checkout=
-document.getElementById(
-"checkoutButton"
-);
-
-
-
-if(checkout){
-
-
-checkout.addEventListener(
-"click",
-()=>{
-
-
-document.getElementById(
-"orderMessage"
-).innerHTML=
-
-
-`
-
-<div class="offer-card">
-
-<h3>
-Order Submitted!
-</h3>
-
-<p>
-Your pickup order has been received.
-We will prepare it shortly.
-</p>
-
-
-</div>
-
-`;
-
-
-});
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =========================================
-   GALLERY LIGHTBOX
-========================================= */
-
-
-const galleryImages =
-document.querySelectorAll(
-".gallery-item img"
-);
-
-
-
-const lightbox =
-document.querySelector(
-".lightbox"
-);
-
-
-
-if(lightbox){
-
-
-
-const lightboxImage =
-lightbox.querySelector(
-"img"
-);
-
-
-
-galleryImages.forEach(image=>{
-
-
-image.addEventListener(
-"click",
-()=>{
-
-
-lightbox.style.display="flex";
-
-lightboxImage.src=
-image.src;
-
-
-
-});
-
-
-});
-
-
-
-lightbox.addEventListener(
-"click",
-()=>{
-
-
-lightbox.style.display="none";
-
-
-});
-
-
-
-}
-
-
-
-
-
-
-
-
-
-/* =========================================
-   SCROLL ANIMATION
-========================================= */
-
-
-const sections =
-document.querySelectorAll(
-"section"
-);
-
-
-
-const observer =
+const revealObserver =
 new IntersectionObserver(
 (entries)=>{
 
@@ -614,10 +50,9 @@ entries.forEach(entry=>{
 if(entry.isIntersecting){
 
 
-entry.target.style.opacity=1;
-
-entry.target.style.transform=
-"translateY(0)";
+entry.target.classList.add(
+"active"
+);
 
 
 }
@@ -631,26 +66,21 @@ entry.target.style.transform=
 
 threshold:.15
 
-}
+});
 
+
+
+revealElements.forEach(
+(element)=>{
+
+element.classList.add(
+"reveal"
 );
 
 
-
-
-sections.forEach(section=>{
-
-
-section.style.opacity=0;
-
-section.style.transform=
-"translateY(40px)";
-
-section.style.transition=
-"0.8s ease";
-
-
-observer.observe(section);
+revealObserver.observe(
+element
+);
 
 
 });
@@ -661,9 +91,19 @@ observer.observe(section);
 
 
 
-/* =========================================
-   SCROLL PROGRESS
-========================================= */
+
+
+
+/* ==========================================
+   NAVBAR SCROLL EFFECT
+========================================== */
+
+
+const navbar =
+document.querySelector(
+".navbar"
+);
+
 
 
 window.addEventListener(
@@ -671,29 +111,29 @@ window.addEventListener(
 ()=>{
 
 
-const height=
-document.documentElement
-.scrollHeight -
-document.documentElement.clientHeight;
+if(!navbar)
+return;
 
 
 
-const progress=
-(window.scrollY / height)*100;
+if(window.scrollY>50){
 
 
+navbar.style.top="10px";
 
-const bar =
-document.querySelector(
-".scroll-progress"
-);
-
+navbar.style.boxShadow=
+"0 20px 50px rgba(0,0,0,.15)";
 
 
-if(bar){
+}
 
-bar.style.width=
-progress+"%";
+else{
+
+
+navbar.style.top="20px";
+
+navbar.style.boxShadow=
+"0 10px 40px rgba(0,0,0,.08)";
 
 
 }
@@ -702,3 +142,594 @@ progress+"%";
 
 });
 
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   HERO PARALLAX
+========================================== */
+
+
+const hero =
+document.querySelector(
+".hero"
+);
+
+
+
+window.addEventListener(
+"scroll",
+()=>{
+
+
+if(hero){
+
+
+let offset =
+window.scrollY * .25;
+
+
+hero.style.backgroundPosition =
+`center ${offset}px`;
+
+
+}
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   MOUSE GOLD GLOW EFFECT
+========================================== */
+
+
+const glow =
+document.createElement(
+"div"
+);
+
+
+
+glow.className=
+"mouse-glow";
+
+
+document.body.appendChild(
+glow
+);
+
+
+
+glow.style.position="fixed";
+
+glow.style.width="250px";
+
+glow.style.height="250px";
+
+glow.style.borderRadius="50%";
+
+glow.style.background=
+"rgba(212,160,23,.18)";
+
+glow.style.filter=
+"blur(80px)";
+
+glow.style.pointerEvents="none";
+
+glow.style.zIndex="-1";
+
+
+
+
+document.addEventListener(
+"mousemove",
+(e)=>{
+
+
+glow.style.left =
+e.clientX-125+"px";
+
+
+glow.style.top =
+e.clientY-125+"px";
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   COUNTER ANIMATION
+========================================== */
+
+
+
+const counters =
+document.querySelectorAll(
+".stat-number"
+);
+
+
+
+counters.forEach(
+counter=>{
+
+
+counter.innerText="0";
+
+
+
+const updateCounter=()=>{
+
+
+const target =
+Number(
+counter.dataset.target
+);
+
+
+
+const current =
+Number(
+counter.innerText
+);
+
+
+
+const increment =
+target/100;
+
+
+
+if(current < target){
+
+
+counter.innerText =
+Math.ceil(
+current + increment
+);
+
+
+
+setTimeout(
+updateCounter,
+25
+);
+
+
+}
+
+else{
+
+
+counter.innerText =
+target;
+
+
+}
+
+
+
+};
+
+
+
+const counterObserver =
+new IntersectionObserver(
+(entries)=>{
+
+
+if(entries[0].isIntersecting){
+
+
+updateCounter();
+
+
+counterObserver.disconnect();
+
+
+}
+
+
+});
+
+
+counterObserver.observe(
+counter
+);
+
+
+});
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   MENU FILTER SYSTEM
+========================================== */
+
+
+
+const filterButtons =
+document.querySelectorAll(
+"[data-category]"
+);
+
+
+
+const menuItems =
+document.querySelectorAll(
+".menu-item"
+);
+
+
+
+filterButtons.forEach(
+button=>{
+
+
+button.addEventListener(
+"click",
+()=>{
+
+
+let category =
+button.dataset.category;
+
+
+
+menuItems.forEach(
+item=>{
+
+
+if(
+category==="all" ||
+item.dataset.category===category
+){
+
+
+item.style.display="block";
+
+
+setTimeout(()=>{
+
+item.style.opacity="1";
+
+item.style.transform=
+"translateY(0)";
+
+
+},50);
+
+
+}
+
+
+else{
+
+
+item.style.opacity="0";
+
+item.style.transform=
+"translateY(30px)";
+
+
+setTimeout(()=>{
+
+
+item.style.display="none";
+
+
+},300);
+
+
+}
+
+
+
+});
+
+
+
+});
+
+
+});
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   CART DRAWER
+========================================== */
+
+
+
+const cartButton =
+document.querySelector(
+".cart-button"
+);
+
+
+
+const cartDrawer =
+document.querySelector(
+".cart-drawer"
+);
+
+
+
+if(cartButton && cartDrawer){
+
+
+cartButton.addEventListener(
+"click",
+()=>{
+
+
+cartDrawer.classList.toggle(
+"open"
+);
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   PAGE TRANSITIONS
+========================================== */
+
+
+
+const links =
+document.querySelectorAll(
+"a"
+);
+
+
+
+links.forEach(
+link=>{
+
+
+if(
+link.hostname ===
+window.location.hostname
+){
+
+
+link.addEventListener(
+"click",
+(e)=>{
+
+
+const url =
+link.href;
+
+
+
+if(
+url.includes("#")
+)
+return;
+
+
+
+e.preventDefault();
+
+
+
+document.body.style.opacity="0";
+
+
+
+setTimeout(
+()=>{
+
+window.location.href=url;
+
+
+},
+400
+);
+
+
+
+});
+
+
+}
+
+
+});
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   BUTTON RIPPLE EFFECT
+========================================== */
+
+
+const buttons =
+document.querySelectorAll(
+"button, .primary-btn"
+);
+
+
+
+buttons.forEach(
+button=>{
+
+
+button.addEventListener(
+"click",
+function(e){
+
+
+let ripple =
+document.createElement(
+"span"
+);
+
+
+ripple.className=
+"ripple";
+
+
+
+this.appendChild(
+ripple
+);
+
+
+
+setTimeout(
+()=>{
+
+ripple.remove();
+
+},
+600
+);
+
+
+
+});
+
+
+});
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   MOBILE MENU
+========================================== */
+
+
+const menuToggle =
+document.querySelector(
+".menu-toggle"
+);
+
+
+const mobileNav =
+document.querySelector(
+".mobile-nav"
+);
+
+
+
+if(menuToggle){
+
+
+menuToggle.onclick=()=>{
+
+
+mobileNav.classList.toggle(
+"active"
+);
+
+
+};
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/* ==========================================
+   SMOOTH BUTTON SCROLL
+========================================== */
+
+
+document.querySelectorAll(
+"button[data-scroll]"
+)
+.forEach(
+button=>{
+
+
+button.onclick=()=>{
+
+
+document.querySelector(
+button.dataset.scroll
+)
+.scrollIntoView(
+{
+behavior:"smooth"
+}
+);
+
+
+};
+
+
+});
