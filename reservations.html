@@ -1,47 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
 
+
 <meta charset="UTF-8">
+
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-<title>Andy's Restaurant | Reservations</title>
+<title>Reservations | Andy's Bar</title>
 
 
 <link rel="stylesheet" href="style.css">
 
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 
 </head>
 
 
+
 <body>
-
-
-
-<!-- LOADER -->
-
-<div class="loader">
-
-<h1>
-ANDY'S
-</h1>
-
-
-<div class="loader-line"></div>
-
-
-</div>
-
 
 
 
@@ -51,11 +36,7 @@ ANDY'S
 
 
 
-
-
-
-
-<!-- NAVBAR -->
+<!-- NAVIGATION -->
 
 
 <header class="navbar">
@@ -63,15 +44,9 @@ ANDY'S
 
 <div class="logo">
 
-ANDY'S
-
-<span>
-RESTAURANT
-</span>
+Andy's Bar
 
 </div>
-
-
 
 
 
@@ -79,32 +54,44 @@ RESTAURANT
 
 
 <a href="index.html">
+
 Home
+
 </a>
 
 
 <a href="menu.html">
+
 Menu
+
 </a>
 
 
 <a href="gallery.html">
+
 Gallery
+
 </a>
 
 
 <a href="reservations.html">
+
 Reservations
+
 </a>
 
 
 <a href="order.html">
-Order
+
+Order Online
+
 </a>
 
 
 <a href="events.html">
+
 Events
+
 </a>
 
 
@@ -113,11 +100,12 @@ Events
 
 
 
-<button class="reserve-btn">
 
-Reserve Table
+<a class="nav-button" href="order.html">
 
-</button>
+Order Now
+
+</a>
 
 
 
@@ -140,25 +128,30 @@ Reserve Table
 <div>
 
 
-<p class="section-label">
-BOOK YOUR EXPERIENCE
+<p class="section-tag">
+
+BOOK YOUR TABLE
+
 </p>
 
 
 <h1>
-Reserve A Table
+
+Reservations
+
 </h1>
 
 
 <p>
 
-Join us for great food,
-drinks and unforgettable moments.
+Reserve your place at Andy's Bar.
+Enjoy great food, drinks and unforgettable moments.
 
 </p>
 
 
 </div>
+
 
 
 </section>
@@ -174,12 +167,7 @@ drinks and unforgettable moments.
 <!-- RESERVATION AREA -->
 
 
-<section class="reservation-section">
-
-
-<div class="reservation-container">
-
-
+<section class="reservation-container">
 
 
 
@@ -188,40 +176,45 @@ drinks and unforgettable moments.
 <div class="reservation-info">
 
 
-<p class="section-label">
-ANDY'S
-</p>
-
-
 
 <h2>
-Your Table Awaits
+
+Visit Andy's Bar
+
 </h2>
 
 
 
+
 <p>
 
-Whether you are celebrating,
-meeting friends, or enjoying a
-casual evening, Andy's welcomes you.
+Whether you are joining us for dinner,
+sports, celebrations or a casual drink,
+we are ready to welcome you.
 
 </p>
 
 
 
 
-
-<div class="booking-feature">
+<div class="info-card">
 
 
 <h3>
-🍽 Private Dining
+
+Opening Hours
+
 </h3>
 
 
 <p>
-Perfect for celebrations and special events.
+
+Monday - Sunday
+
+<br>
+
+11:00 AM - 11:59 PM
+
 </p>
 
 
@@ -231,16 +224,20 @@ Perfect for celebrations and special events.
 
 
 
-<div class="booking-feature">
+<div class="info-card">
 
 
 <h3>
-🍺 Pub Experience
+
+Pickup Service
+
 </h3>
 
 
 <p>
-Relaxed atmosphere with great drinks.
+
+11:00 AM - 10:00 PM
+
 </p>
 
 
@@ -250,20 +247,37 @@ Relaxed atmosphere with great drinks.
 
 
 
-<div class="booking-feature">
+<div class="info-card">
 
 
 <h3>
-⭐ Local Favourite
+
+Contact
+
 </h3>
 
 
 <p>
-A place where memories are created.
+
+Jan Jonker Street
+
+<br>
+
+Show Grounds
+
+<br>
+
+Windhoek, Namibia
+
+<br><br>
+
+☎ +264 81 602 5045
+
 </p>
 
 
 </div>
+
 
 
 
@@ -280,19 +294,29 @@ A place where memories are created.
 <!-- FORM -->
 
 
-<form class="booking-form">
+<div class="reservation-form">
 
 
 
 <h2>
-Make A Reservation
+
+Reserve A Table
+
 </h2>
 
 
 
+<form id="reservationForm">
+
+
+
+<div class="form-group">
+
 
 <label>
+
 Full Name
+
 </label>
 
 
@@ -303,85 +327,127 @@ required
 >
 
 
+</div>
+
+
+
+
+
+
+
+<div class="form-group">
 
 
 <label>
+
 Phone Number
+
 </label>
 
 
 <input 
 type="tel"
-placeholder="+264"
+placeholder="+264..."
 required
 >
 
 
+</div>
+
+
+
+
+
+
+
+<div class="form-group">
 
 
 <label>
-Email Address
+
+Email
+
 </label>
 
 
-<input
+<input 
 type="email"
-placeholder="example@email.com"
+placeholder="Email address"
 >
 
 
 
+</div>
+
+
+
+
+
+
+
+<div class="form-row">
+
+
+
+<div class="form-group">
+
 
 <label>
-Reservation Date
+
+Date
+
 </label>
 
 
-<input
+<input 
 type="date"
 required
 >
 
 
+</div>
 
+
+
+
+
+<div class="form-group">
 
 
 <label>
-Preferred Time
+
+Time
+
 </label>
 
 
-<select>
+<input 
+type="time"
+required
+>
 
 
-<option>
-18:00
-</option>
-
-
-<option>
-19:00
-</option>
-
-
-<option>
-20:00
-</option>
-
-
-<option>
-21:00
-</option>
-
-
-</select>
+</div>
 
 
 
+</div>
+
+
+
+
+
+
+
+
+
+<div class="form-group">
 
 
 <label>
+
 Number Of Guests
+
 </label>
 
 
@@ -389,53 +455,69 @@ Number Of Guests
 
 
 <option>
-1 Guest
+1 Person
 </option>
 
 
 <option>
-2 Guests
+2 People
 </option>
 
 
 <option>
-4 Guests
+3 People
 </option>
 
 
 <option>
-6 Guests
+4 People
 </option>
 
 
 <option>
-8+ Guests
+5+ People
 </option>
 
 
 </select>
 
 
+</div>
 
+
+
+
+
+
+
+<div class="form-group">
 
 
 <label>
-Special Requests
+
+Special Request
+
 </label>
 
 
-<textarea placeholder="Birthday, event, allergies, etc."></textarea>
+<textarea 
+placeholder="Birthday, event, special requirements..."
+></textarea>
+
+
+</div>
 
 
 
 
 
 
-<button class="submit-booking">
+<button class="primary-btn" type="submit">
 
 Confirm Reservation
 
 </button>
+
 
 
 
@@ -446,8 +528,14 @@ Confirm Reservation
 
 
 
+<div id="reservationMessage"></div>
+
+
 
 </div>
+
+
+
 
 
 </section>
@@ -460,14 +548,39 @@ Confirm Reservation
 
 
 
-<!-- WHATSAPP -->
+<!-- MAP PLACEHOLDER -->
 
 
-<a class="whatsapp" href="https://wa.me/26400000000">
+<section class="location-section">
 
-💬
 
-</a>
+<h2>
+
+Find Andy's Bar
+
+</h2>
+
+
+<p>
+
+Jan Jonker Street,
+Show Grounds,
+Windhoek Namibia
+
+</p>
+
+
+
+<div class="map-placeholder">
+
+
+Google Maps Location
+
+</div>
+
+
+
+</section>
 
 
 
@@ -483,16 +596,21 @@ Confirm Reservation
 <footer>
 
 
-<div class="footer-brand">
+
+<div>
 
 
 <h2>
-ANDY'S
+
+Andy's Bar
+
 </h2>
 
 
 <p>
-Restaurant • Pub • Events
+
+Best Food In Windhoek
+
 </p>
 
 
@@ -505,21 +623,29 @@ Restaurant • Pub • Events
 
 
 <a href="menu.html">
+
 Menu
+
 </a>
 
 
 <a href="gallery.html">
+
 Gallery
+
 </a>
 
 
 <a href="order.html">
+
 Order Online
+
 </a>
 
 
+
 </div>
+
 
 
 
@@ -528,17 +654,20 @@ Order Online
 
 
 <h3>
-Location
+
+Contact
+
 </h3>
 
 
 <p>
-Windhoek, Namibia
+
++264 81 602 5045
+
 </p>
 
 
 </div>
-
 
 
 
@@ -550,9 +679,13 @@ Windhoek, Namibia
 
 
 
+
+
 <script src="script.js"></script>
 
 
+
 </body>
+
 
 </html>
