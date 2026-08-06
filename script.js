@@ -1,22 +1,75 @@
-/* ==========================================
-   ANDY'S BAR V3 JAVASCRIPT
-   PREMIUM INTERACTIONS
-========================================== */
+/* =====================================
+   ANDY'S BAR MAIN JAVASCRIPT
+===================================== */
+
+
+document.addEventListener("DOMContentLoaded", () => {
 
 
 
-/* ==========================================
-   PAGE LOADING ANIMATION
-========================================== */
+
+/* =====================================
+   REMOVE LOADER
+===================================== */
 
 
-window.addEventListener(
-"load",
-()=>{
+setTimeout(() => {
 
-document.body.classList.add(
-"loaded"
-);
+    const loader = document.querySelector(".loader");
+
+    if(loader){
+
+        loader.style.display="none";
+
+    }
+
+
+},2500);
+
+
+
+
+
+
+
+
+
+/* =====================================
+   NAVBAR SCROLL EFFECT
+===================================== */
+
+
+const navbar = document.querySelector(".navbar");
+
+
+window.addEventListener("scroll",()=>{
+
+
+    if(window.scrollY > 80){
+
+        navbar.style.background =
+        "rgba(0,0,0,0.9)";
+
+
+        navbar.style.top="10px";
+
+
+    }
+
+
+    else{
+
+
+        navbar.style.background =
+        "rgba(0,0,0,.55)";
+
+
+        navbar.style.top="20px";
+
+
+    }
+
+
 
 });
 
@@ -27,20 +80,22 @@ document.body.classList.add(
 
 
 
-/* ==========================================
+
+/* =====================================
    SCROLL REVEAL ANIMATION
-========================================== */
+===================================== */
 
 
-const revealElements =
-document.querySelectorAll(
-".reveal, section, .menu-card, .offer-card, .why-card"
+const revealElements = document.querySelectorAll(
+
+"section, .offer-card, .food-card, .gallery-grid div"
+
 );
 
 
 
-const revealObserver =
-new IntersectionObserver(
+const observer = new IntersectionObserver(
+
 (entries)=>{
 
 
@@ -50,9 +105,7 @@ entries.forEach(entry=>{
 if(entry.isIntersecting){
 
 
-entry.target.classList.add(
-"active"
-);
+entry.target.classList.add("show");
 
 
 }
@@ -62,82 +115,27 @@ entry.target.classList.add(
 
 
 },
+
+
 {
 
-threshold:.15
-
-});
-
-
-
-revealElements.forEach(
-(element)=>{
-
-element.classList.add(
-"reveal"
-);
-
-
-revealObserver.observe(
-element
-);
-
-
-});
-
-
-
-
-
-
-
-
-
-
-/* ==========================================
-   NAVBAR SCROLL EFFECT
-========================================== */
-
-
-const navbar =
-document.querySelector(
-".navbar"
-);
-
-
-
-window.addEventListener(
-"scroll",
-()=>{
-
-
-if(!navbar)
-return;
-
-
-
-if(window.scrollY>50){
-
-
-navbar.style.top="10px";
-
-navbar.style.boxShadow=
-"0 20px 50px rgba(0,0,0,.15)";
-
+threshold:0.15
 
 }
 
-else{
+
+);
 
 
-navbar.style.top="20px";
-
-navbar.style.boxShadow=
-"0 10px 40px rgba(0,0,0,.08)";
 
 
-}
+revealElements.forEach(el=>{
 
+
+el.classList.add("hidden");
+
+
+observer.observe(el);
 
 
 });
@@ -150,314 +148,40 @@ navbar.style.boxShadow=
 
 
 
+/* =====================================
+   BUTTON RIPPLE EFFECT
+===================================== */
 
 
-/* ==========================================
-   HERO PARALLAX
-========================================== */
+const buttons =
+document.querySelectorAll("button,.primary-btn,.secondary-btn");
 
 
-const hero =
-document.querySelector(
-".hero"
-);
 
+buttons.forEach(button=>{
 
 
-window.addEventListener(
-"scroll",
-()=>{
+button.addEventListener("click",(e)=>{
 
 
-if(hero){
+let ripple =
+document.createElement("span");
 
 
-let offset =
-window.scrollY * .25;
+ripple.className="ripple";
 
 
-hero.style.backgroundPosition =
-`center ${offset}px`;
+button.appendChild(ripple);
 
-
-}
-
-
-
-});
-
-
-
-
-
-
-
-
-
-
-/* ==========================================
-   MOUSE GOLD GLOW EFFECT
-========================================== */
-
-
-const glow =
-document.createElement(
-"div"
-);
-
-
-
-glow.className=
-"mouse-glow";
-
-
-document.body.appendChild(
-glow
-);
-
-
-
-glow.style.position="fixed";
-
-glow.style.width="250px";
-
-glow.style.height="250px";
-
-glow.style.borderRadius="50%";
-
-glow.style.background=
-"rgba(212,160,23,.18)";
-
-glow.style.filter=
-"blur(80px)";
-
-glow.style.pointerEvents="none";
-
-glow.style.zIndex="-1";
-
-
-
-
-document.addEventListener(
-"mousemove",
-(e)=>{
-
-
-glow.style.left =
-e.clientX-125+"px";
-
-
-glow.style.top =
-e.clientY-125+"px";
-
-
-
-});
-
-
-
-
-
-
-
-
-
-
-/* ==========================================
-   COUNTER ANIMATION
-========================================== */
-
-
-
-const counters =
-document.querySelectorAll(
-".stat-number"
-);
-
-
-
-counters.forEach(
-counter=>{
-
-
-counter.innerText="0";
-
-
-
-const updateCounter=()=>{
-
-
-const target =
-Number(
-counter.dataset.target
-);
-
-
-
-const current =
-Number(
-counter.innerText
-);
-
-
-
-const increment =
-target/100;
-
-
-
-if(current < target){
-
-
-counter.innerText =
-Math.ceil(
-current + increment
-);
-
-
-
-setTimeout(
-updateCounter,
-25
-);
-
-
-}
-
-else{
-
-
-counter.innerText =
-target;
-
-
-}
-
-
-
-};
-
-
-
-const counterObserver =
-new IntersectionObserver(
-(entries)=>{
-
-
-if(entries[0].isIntersecting){
-
-
-updateCounter();
-
-
-counterObserver.disconnect();
-
-
-}
-
-
-});
-
-
-counterObserver.observe(
-counter
-);
-
-
-});
-
-
-
-
-
-
-
-
-
-/* ==========================================
-   MENU FILTER SYSTEM
-========================================== */
-
-
-
-const filterButtons =
-document.querySelectorAll(
-"[data-category]"
-);
-
-
-
-const menuItems =
-document.querySelectorAll(
-".menu-item"
-);
-
-
-
-filterButtons.forEach(
-button=>{
-
-
-button.addEventListener(
-"click",
-()=>{
-
-
-let category =
-button.dataset.category;
-
-
-
-menuItems.forEach(
-item=>{
-
-
-if(
-category==="all" ||
-item.dataset.category===category
-){
-
-
-item.style.display="block";
-
-
-setTimeout(()=>{
-
-item.style.opacity="1";
-
-item.style.transform=
-"translateY(0)";
-
-
-},50);
-
-
-}
-
-
-else{
-
-
-item.style.opacity="0";
-
-item.style.transform=
-"translateY(30px)";
 
 
 setTimeout(()=>{
 
 
-item.style.display="none";
+ripple.remove();
 
 
-},300);
-
-
-}
-
-
-
-});
+},600);
 
 
 
@@ -474,44 +198,29 @@ item.style.display="none";
 
 
 
-
-/* ==========================================
-   CART DRAWER
-========================================== */
-
+/* =====================================
+   ORDER BUTTONS
+===================================== */
 
 
-const cartButton =
-document.querySelector(
-".cart-button"
-);
+const orderButtons =
+document.querySelectorAll(".order-btn");
 
 
 
-const cartDrawer =
-document.querySelector(
-".cart-drawer"
-);
+orderButtons.forEach(btn=>{
 
 
-
-if(cartButton && cartDrawer){
-
-
-cartButton.addEventListener(
-"click",
-()=>{
+btn.addEventListener("click",()=>{
 
 
-cartDrawer.classList.toggle(
-"open"
-);
+window.location.href="menu.html";
 
 
 });
 
 
-}
+});
 
 
 
@@ -521,215 +230,192 @@ cartDrawer.classList.toggle(
 
 
 
-/* ==========================================
-   PAGE TRANSITIONS
-========================================== */
+/* =====================================
+   RESERVATION BUTTON
+===================================== */
 
 
-
-const links =
+const reservationButtons =
 document.querySelectorAll(
-"a"
+".reservation button"
 );
 
 
 
-links.forEach(
-link=>{
+reservationButtons.forEach(btn=>{
 
 
-if(
-link.hostname ===
-window.location.hostname
-){
+btn.addEventListener("click",()=>{
 
 
-link.addEventListener(
-"click",
-(e)=>{
+window.location.href="#contact";
 
 
-const url =
-link.href;
+});
+
+
+});
 
 
 
-if(
-url.includes("#")
-)
-return;
 
+
+
+
+
+
+/* =====================================
+   SMOOTH ANCHOR SCROLL
+===================================== */
+
+
+document.querySelectorAll('a[href^="#"]')
+.forEach(anchor=>{
+
+
+anchor.addEventListener("click",function(e){
 
 
 e.preventDefault();
 
 
 
-document.body.style.opacity="0";
-
-
-
-setTimeout(
-()=>{
-
-window.location.href=url;
-
-
-},
-400
-);
-
-
-
-});
-
-
-}
-
-
-});
-
-
-
-
-
-
-
-
-
-
-/* ==========================================
-   BUTTON RIPPLE EFFECT
-========================================== */
-
-
-const buttons =
-document.querySelectorAll(
-"button, .primary-btn"
-);
-
-
-
-buttons.forEach(
-button=>{
-
-
-button.addEventListener(
-"click",
-function(e){
-
-
-let ripple =
-document.createElement(
-"span"
-);
-
-
-ripple.className=
-"ripple";
-
-
-
-this.appendChild(
-ripple
-);
-
-
-
-setTimeout(
-()=>{
-
-ripple.remove();
-
-},
-600
-);
-
-
-
-});
-
-
-});
-
-
-
-
-
-
-
-
-
-
-/* ==========================================
-   MOBILE MENU
-========================================== */
-
-
-const menuToggle =
 document.querySelector(
-".menu-toggle"
-);
-
-
-const mobileNav =
-document.querySelector(
-".mobile-nav"
-);
-
-
-
-if(menuToggle){
-
-
-menuToggle.onclick=()=>{
-
-
-mobileNav.classList.toggle(
-"active"
-);
-
-
-};
-
-
-}
-
-
-
-
-
-
-
-
-
-
-/* ==========================================
-   SMOOTH BUTTON SCROLL
-========================================== */
-
-
-document.querySelectorAll(
-"button[data-scroll]"
+this.getAttribute("href")
 )
-.forEach(
-button=>{
+.scrollIntoView({
 
-
-button.onclick=()=>{
-
-
-document.querySelector(
-button.dataset.scroll
-)
-.scrollIntoView(
-{
 behavior:"smooth"
-}
-);
+
+});
 
 
-};
+
+});
+
+
+});
+
+
+
+
+
+
+
+
+
+/* =====================================
+   FOOD CARD FLOAT EFFECT
+===================================== */
+
+
+const cards =
+document.querySelectorAll(".food-card");
+
+
+
+cards.forEach(card=>{
+
+
+card.addEventListener("mousemove",(e)=>{
+
+
+let rect =
+card.getBoundingClientRect();
+
+
+
+let x =
+e.clientX - rect.left;
+
+
+let y =
+e.clientY - rect.top;
+
+
+
+let rotateX =
+(y - rect.height/2)/20;
+
+
+let rotateY =
+(rect.width/2 - x)/20;
+
+
+
+card.style.transform =
+
+`
+perspective(700px)
+rotateX(${rotateX}deg)
+rotateY(${rotateY}deg)
+scale(1.03)
+`;
+
+
+
+});
+
+
+
+
+card.addEventListener("mouseleave",()=>{
+
+
+card.style.transform="";
+
+
+});
+
+
+
+});
+
+
+
+
+
+
+
+
+
+/* =====================================
+   GOLD CURSOR GLOW
+===================================== */
+
+
+const glow =
+document.createElement("div");
+
+
+glow.className="cursor-glow";
+
+
+document.body.appendChild(glow);
+
+
+
+
+document.addEventListener("mousemove",(e)=>{
+
+
+glow.style.left =
+e.clientX+"px";
+
+
+glow.style.top =
+e.clientY+"px";
+
+
+
+});
+
+
+
+
+
+
+
 
 
 });
